@@ -8,7 +8,7 @@ import android.widget.Toast
 import io.github.anotherjack.onresultmanager.OnResultManager
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : Activity() {
     private val REQUEST_CODE = 42
     private val onResultManager by lazy { OnResultManager(this) }
 
@@ -29,8 +29,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 //        super.onActivityResult(requestCode, resultCode, data)
 //        onResultManager.trigger(requestCode,resultCode,data)
-//    }
+    }
 }
