@@ -29,8 +29,8 @@ class MainActivity : Activity() {
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 //        super.onActivityResult(requestCode, resultCode, data)
 //        onResultManager.trigger(requestCode,resultCode,data)
-    }
+//    }
 }

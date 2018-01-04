@@ -19,11 +19,6 @@ import java.lang.reflect.Proxy;
 import java.util.List;
 
 public class HookUtil {
-
-    public HookUtil() {
-
-    }
-
     public static void hookActivityThreadHandler() throws Exception {
         // 先获取到当前的ActivityThread对象
         final Class<?> activityThreadClass = Class.forName("android.app.ActivityThread");
@@ -35,8 +30,6 @@ public class HookUtil {
         Field mHField = activityThreadClass.getDeclaredField("mH");
         mHField.setAccessible(true);
         Handler mH = (Handler) mHField.get(currentActivityThread);
-
-
 
         Handler.Callback mHCallback = new Handler.Callback() {
             @Override
@@ -99,23 +92,6 @@ public class HookUtil {
                 return false;
             }
         };
-
-        // 设置它的回调, 根据源码:
-        // 我们自己给他设置一个回调,就会替代之前的回调;
-
-        //        public void dispatchMessage(Message msg) {
-        //            if (msg.callback != null) {
-        //                handleCallback(msg);
-        //            } else {
-        //                if (mCallback != null) {
-        //                    if (mCallback.handleMessage(msg)) {
-        //                        return;
-        //                    }
-        //                }
-        //                handleMessage(msg);
-        //            }
-        //        }
-
         Field mCallBackField = Handler.class.getDeclaredField("mCallback");
         mCallBackField.setAccessible(true);
 
