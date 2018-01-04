@@ -14,7 +14,7 @@ import org.aspectj.lang.annotation.Before;
  * Created by zhengj on 2018/1/3.
  */
 
-@Aspect
+//@Aspect
 public class OnResultAspect {
     private static final String TAG = "OnResultAspect";
 
@@ -30,16 +30,5 @@ public class OnResultAspect {
 
         new OnResultManager(activity).trigger(requestCode,resultCode,data);
 
-    }
-
-    @Before("execution(* android.widget.Toast.show())")
-    public void showToastBefore(JoinPoint joinPoint) throws Throwable {
-        Log.d(TAG,"-------------Toast#show() hooked");
-    }
-
-    @Before("execution(* android.app.Activity.on**(..))")
-    public void onActivityMethodBefore(JoinPoint joinPoint) throws Throwable {
-        String key = joinPoint.getSignature().toString();
-        Log.d(TAG, "onActivityMethodBefore: " + key);
     }
 }
