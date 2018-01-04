@@ -14,6 +14,8 @@ import org.aspectj.lang.annotation.Before;
  * Created by zhengj on 2018/1/3.
  */
 
+//注意！！！这个文件是我倒腾aspectj的时候搞的，无视就好
+
 //@Aspect
 public class OnResultAspect {
     private static final String TAG = "OnResultAspect";
