@@ -17,6 +17,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.List;
+import java.util.Map;
 
 public class HookUtil {
     public static void hookActivityThreadHandler() throws Exception {
@@ -42,7 +43,7 @@ public class HookUtil {
 
                         Field mActivitiesField = activityThreadClass.getDeclaredField("mActivities");
                         mActivitiesField.setAccessible(true);
-                        ArrayMap mActivities = (ArrayMap) mActivitiesField.get(currentActivityThread);
+                        Map mActivities = (Map) mActivitiesField.get(currentActivityThread);
 
                         Class<?> resultDataClass = Class.forName("android.app.ActivityThread$ResultData");
                         Field tokenField = resultDataClass.getDeclaredField("token");
